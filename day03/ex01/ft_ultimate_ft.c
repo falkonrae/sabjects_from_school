@@ -1,41 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
+/*   ft_ultimate_ft.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vjacob <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/09 17:58:02 by vjacob            #+#    #+#             */
-/*   Updated: 2020/02/09 22:12:07 by vjacob           ###   ########.fr       */
+/*   Created: 2020/02/07 20:01:05 by vjacob            #+#    #+#             */
+/*   Updated: 2020/02/08 12:59:28 by vjacob           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-void	ft_print_numbers(int n);
-void	ft_putchar(char c);
+void		ft_ultimate_ft(int		*********nbr);
 
-int		main(void)
+
+int 	main(void)
 {
-	ft_print_numbers();
-	return (0);
+	int		d;
+	int 	*nbr = &d;
+	int		**nbr2= &nbr;
+	int		***nbr3= &nbr2;
+	int 	****nbr4= &nbr3;
+	int		*****nbr5= &nbr4;
+	int 	******nbr6= &nbr5;
+	int 	*******nbr7= &nbr6;
+	int		********nbr8= &nbr7;
+	int		*********nbr9= &nbr8;
+	ft_ultimate_ft(nbr9);
+	printf("%d", d);
+	return 0;
+
+
 }
 
-void	ft_print_numbers(int n)
-{
-	char a;
-	char b;
 
-	a = '0';
-	b = '9';
-	while (a <= b)
-	{
-		ft_putchar(a);
-		a++;
-	}
-}
-
-void	ft_putchar(char c)
+void		ft_ultimate_ft(int *********nbr)
 {
-	write(1, &c, 1);
+	*********nbr = 42;
 }

@@ -1,35 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_mass.c                                    :+:      :+:    :+:   */
+/*   ft_ft.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amanda <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: vjacob <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/15 19:52:05 by amanda            #+#    #+#             */
-/*   Updated: 2020/02/16 16:29:25 by amanda           ###   ########.fr       */
+/*   Created: 2020/02/20 18:14:17 by vjacob            #+#    #+#             */
+/*   Updated: 2020/02/20 18:37:32 by vjacob           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c);
+#include <stdio.h>
 
-void	ft_print_mass(int **arr)
+void	ft_ft(int *nbr)
 {
-	int i;
-	int j;
+	*nbr = 42;
+}
 
-	i = 0;
-	j = 0;
-	while (i < 9)
-	{
-		while (j < 9)
-		{
-			ft_putchar(arr[i][j] + '0');
-			if (j != 8)
-				ft_putchar(' ');
-			j++;
-		}
-		ft_putchar('\n');
-		j = 0;
-		i++;
-	}
+int	main()
+{
+	int *str;
+	int a;
+
+	a = 2;
+	str = &a;
+	ft_ft(str);
+	printf("%d", a);
+	return 0;
 }

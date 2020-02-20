@@ -1,41 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
+/*   ft_ultimate_div_mod.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vjacob <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/09 17:58:02 by vjacob            #+#    #+#             */
-/*   Updated: 2020/02/09 22:12:07 by vjacob           ###   ########.fr       */
+/*   Created: 2020/02/20 19:41:42 by vjacob            #+#    #+#             */
+/*   Updated: 2020/02/20 19:52:44 by vjacob           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-void	ft_print_numbers(int n);
-void	ft_putchar(char c);
-
-int		main(void)
+void	ft_ultimate_div_mod(int *a, int *b)
 {
-	ft_print_numbers();
-	return (0);
+	int x;
+	int y;
+
+	x = *a / *b;
+	y = *a % *b;
+	*a = x;
+	*b = y;
 }
 
-void	ft_print_numbers(int n)
+int	main(void)
 {
-	char a;
-	char b;
+	int *d;
+	int *c;
+	int g = 31;
+	int k = 5;
 
-	a = '0';
-	b = '9';
-	while (a <= b)
-	{
-		ft_putchar(a);
-		a++;
-	}
-}
-
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
+	d = &g;
+	c = &k;
+	ft_ultimate_div_mod(d, c);
+	printf("%d is mod and %d is div", k, g);
+	return 0;
 }

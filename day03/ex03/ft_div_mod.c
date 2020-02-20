@@ -1,41 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
+/*   ft_div_mod.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vjacob <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/09 17:58:02 by vjacob            #+#    #+#             */
-/*   Updated: 2020/02/09 22:12:07 by vjacob           ###   ########.fr       */
+/*   Created: 2020/02/20 19:12:41 by vjacob            #+#    #+#             */
+/*   Updated: 2020/02/20 19:40:56 by vjacob           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-void	ft_print_numbers(int n);
-void	ft_putchar(char c);
-
-int		main(void)
+void	ft_div_mod(int a, int b, int *div, int *mod)
 {
-	ft_print_numbers();
-	return (0);
+	*div = a / b;
+	*mod = a % b;
 }
 
-void	ft_print_numbers(int n)
+int	main(void)
 {
-	char a;
-	char b;
+	int ar = 31;
+	int dd = 5;
+	int *div;
+	int *mod;
+	int a;
+	int b;
 
-	a = '0';
-	b = '9';
-	while (a <= b)
-	{
-		ft_putchar(a);
-		a++;
-	}
-}
-
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
+	div = &a;
+	mod = &b;
+	ft_div_mod(ar, dd, div, mod);
+	printf("%d ", a);
+	printf("%d", b);
+	return 0;
 }

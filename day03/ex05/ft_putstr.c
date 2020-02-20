@@ -1,41 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vjacob <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/09 17:58:02 by vjacob            #+#    #+#             */
-/*   Updated: 2020/02/09 22:12:07 by vjacob           ###   ########.fr       */
+/*   Created: 2020/02/20 19:56:28 by vjacob            #+#    #+#             */
+/*   Updated: 2020/02/20 20:07:56 by vjacob           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_print_numbers(int n);
 void	ft_putchar(char c);
 
-int		main(void)
+void	ft_putstr(char *str)
 {
-	ft_print_numbers();
-	return (0);
-}
-
-void	ft_print_numbers(int n)
-{
-	char a;
-	char b;
-
-	a = '0';
-	b = '9';
-	while (a <= b)
+	while (*str)
 	{
-		ft_putchar(a);
-		a++;
+		ft_putchar(*str);
+		str++;
 	}
 }
 
-void	ft_putchar(char c)
+int	main(void)
 {
-	write(1, &c, 1);
+	char sds[] = "sdfsd";
+	ft_putstr(sds);
+	return 0;
 }

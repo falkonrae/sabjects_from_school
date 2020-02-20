@@ -1,41 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vjacob <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/09 17:58:02 by vjacob            #+#    #+#             */
-/*   Updated: 2020/02/09 22:12:07 by vjacob           ###   ########.fr       */
+/*   Created: 2020/02/20 20:28:54 by vjacob            #+#    #+#             */
+/*   Updated: 2020/02/20 21:22:04 by vjacob           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-void	ft_print_numbers(int n);
-void	ft_putchar(char c);
-
-int		main(void)
+char		*ft_strrev(char *str)
 {
-	ft_print_numbers();
-	return (0);
-}
+	int	i;
+	int k;
+	int h;
 
-void	ft_print_numbers(int n)
-{
-	char a;
-	char b;
-
-	a = '0';
-	b = '9';
-	while (a <= b)
+	k = 0;
+	i = 0;
+	while (str[k] != '\0')
+		k++;
+	while (i < k / 2)
 	{
-		ft_putchar(a);
-		a++;
+		h = str[i];
+		str[i] = str[k - 1 - i];
+		str[k - 1 - i] = h;
+		i++;
 	}
+	return (str);
 }
 
-void	ft_putchar(char c)
+int	main(void)
 {
-	write(1, &c, 1);
+	char sdf[] = "sdfsfaf";
+	printf("%s\n", sdf);
+	printf("%s", ft_strrev(sdf));
+	return 0;
 }
+		

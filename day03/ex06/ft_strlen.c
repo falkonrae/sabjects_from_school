@@ -1,41 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vjacob <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/09 17:58:02 by vjacob            #+#    #+#             */
-/*   Updated: 2020/02/09 22:12:07 by vjacob           ###   ########.fr       */
+/*   Created: 2020/02/20 20:09:37 by vjacob            #+#    #+#             */
+/*   Updated: 2020/02/20 20:28:10 by vjacob           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-void	ft_print_numbers(int n);
-void	ft_putchar(char c);
-
-int		main(void)
+int		ft_strlen(char *str)
 {
-	ft_print_numbers();
-	return (0);
-}
+	int i;
 
-void	ft_print_numbers(int n)
-{
-	char a;
-	char b;
-
-	a = '0';
-	b = '9';
-	while (a <= b)
+	i = 0;
+	while (*str)
 	{
-		ft_putchar(a);
-		a++;
+		i++;
+		str++;
 	}
+	return (i);
 }
 
-void	ft_putchar(char c)
+int	main(void)
 {
-	write(1, &c, 1);
+	char *stf = "sdfhdfghdfhdfhdfhsrthdrthrhrsds";
+	printf("%d", ft_strlen(stf));
+	return 0;
+	
 }

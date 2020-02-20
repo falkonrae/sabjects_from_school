@@ -3,37 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amanda <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: vjacob <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/10 16:51:26 by amanda            #+#    #+#             */
-/*   Updated: 2020/02/11 12:44:02 by amanda           ###   ########.fr       */
+/*   Created: 2020/02/11 07:35:03 by vjacob            #+#    #+#             */
+/*   Updated: 2020/02/11 18:05:28 by vjacob           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_atoi(char *str)
 {
-	int out;
-	int s;
+	int		o;
+	int		res;
+	int		minus;
 
-	out = 0;
-	s = 1;
-	if (*str == '\t' || *str == ' ' || *str == '\r' ||
-		*str == '\v' || *str == '\f' || *str == '\n')
-		return (ft_atoi(++str));
-    if (*str == '+')
-        str++;
-	else if (*str == '-')
+	o = 0;
+	res = 0;
+	minus = 0;
+	while ((str[o] == ' ') || (str[o] == '+'))
 	{
-		s = -1;
-		str++;
+		o++;
 	}
-	while (*str)
+	if (str[o] == '-')
 	{
-		if (*str >= 48 && *str <= 57)
-			out = (out * 10) + ((int)(*str - 48) * s);
-		else
-			return (out);
-		str++;
+		minus = 1;
+		o++;
 	}
-	return (out);
+	while ((str[o] >= '0') && (str[o] <= '9'))
+	{
+		res = 10 * res + str[o] - '0';
+		o++;
+	}
+	if (minus == 1)
+		res = -res;
+	return (res);
 }
