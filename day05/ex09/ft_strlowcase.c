@@ -1,43 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vjacob <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/24 21:34:57 by vjacob            #+#    #+#             */
-/*   Updated: 2020/02/25 12:11:41 by vjacob           ###   ########.fr       */
+/*   Created: 2020/02/25 19:12:09 by vjacob            #+#    #+#             */
+/*   Updated: 2020/02/25 19:20:22 by vjacob           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <stdio.h> 
 
-int		ft_atoi(char *str)
+char	*ft_strlowcase(char *str)
 {
-	int		minus = 1;
-	int		res;
-	while (*str)
+	unsigned int	i = 0;
+	while (str[i] != '\0')
 	{
-		if (*str == ' ' || *str == '\n' || *str == '\t' || *str == '+')
-			str++;
-		if (*str == '-')
-		{
-			minus = -1;
-			str++;
-		}
-		if (*str <= '9' && *str >= '0')
-		{	
-			res = res * 10 + *str - '0';
-			str++;
-		}
+		if (str[i] >= 'A' && str[i] <= 'Z')
+			str[i] = str[i] + 32;
+		i++;
 	}
-	return (res * minus);
+	return (str);
 }
-
 
 int		main(void)
 {
-	printf("%d", ft_atoi("2342"));
+	char s[] = "LIJE:IJ;jodk:IJE";
+	printf("%s", ft_strlowcase(s));
 	return 0;
 }
-

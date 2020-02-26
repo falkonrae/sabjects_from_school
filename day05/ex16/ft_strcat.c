@@ -1,43 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vjacob <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/24 21:34:57 by vjacob            #+#    #+#             */
-/*   Updated: 2020/02/25 12:11:41 by vjacob           ###   ########.fr       */
+/*   Created: 2020/02/25 20:42:03 by vjacob            #+#    #+#             */
+/*   Updated: 2020/02/25 20:51:46 by vjacob           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-int		ft_atoi(char *str)
+char	*ft_strcat(char *dest, char *src)
 {
-	int		minus = 1;
-	int		res;
-	while (*str)
+	unsigned int i = 0;
+	unsigned int k = 0;
+	while (dest[i] != '\0')
+		i++;
+	while (src[k] != '\0')
 	{
-		if (*str == ' ' || *str == '\n' || *str == '\t' || *str == '+')
-			str++;
-		if (*str == '-')
-		{
-			minus = -1;
-			str++;
-		}
-		if (*str <= '9' && *str >= '0')
-		{	
-			res = res * 10 + *str - '0';
-			str++;
-		}
+		dest[i] = src[k];
+		i++;
+		k++;
 	}
-	return (res * minus);
+	dest[i] = '\0';
+	return (dest);
 }
 
-
-int		main(void)
+int	main(void)
 {
-	printf("%d", ft_atoi("2342"));
+	char s[] = "sdfsds";
+	char f[] = "GDLSG";
+	printf("%s", ft_strcat(s, f));
 	return 0;
 }
 

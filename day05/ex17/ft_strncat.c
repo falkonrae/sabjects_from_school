@@ -1,43 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vjacob <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/24 21:34:57 by vjacob            #+#    #+#             */
-/*   Updated: 2020/02/25 12:11:41 by vjacob           ###   ########.fr       */
+/*   Created: 2020/02/25 20:52:19 by vjacob            #+#    #+#             */
+/*   Updated: 2020/02/25 21:17:01 by vjacob           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-int		ft_atoi(char *str)
+char    *ft_strncat(char *dest, char *src, int nb)
 {
-	int		minus = 1;
-	int		res;
-	while (*str)
+	int i = 0;
+	int k = 0;
+	while (dest[i] != '\0')
+		i++;
+	while (src[k] != '\0' && k < nb)
 	{
-		if (*str == ' ' || *str == '\n' || *str == '\t' || *str == '+')
-			str++;
-		if (*str == '-')
-		{
-			minus = -1;
-			str++;
-		}
-		if (*str <= '9' && *str >= '0')
-		{	
-			res = res * 10 + *str - '0';
-			str++;
-		}
+		dest[i] = src[k];
+		i++;
+		k++;
 	}
-	return (res * minus);
+	dest[i] = '\0';
+	return (dest);
 }
-
 
 int		main(void)
 {
-	printf("%d", ft_atoi("2342"));
+	char sf[8] = "dsslijsg";
+	char fds[7] = "LIJfslj";
+	printf("%s", ft_strncat(fds, sf, 2));
 	return 0;
 }
-
+		

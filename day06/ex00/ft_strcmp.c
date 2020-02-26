@@ -1,43 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vjacob <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/24 21:34:57 by vjacob            #+#    #+#             */
-/*   Updated: 2020/02/25 12:11:41 by vjacob           ###   ########.fr       */
+/*   Created: 2020/02/26 13:29:49 by vjacob            #+#    #+#             */
+/*   Updated: 2020/02/26 18:50:38 by vjacob           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-int		ft_atoi(char *str)
+int		ft_strcmp(char *s1, char *s2)
 {
-	int		minus = 1;
-	int		res;
-	while (*str)
+	unsigned int	i = 0;
+	while (s1[i] != '\0' && s2[i] != '\0')
 	{
-		if (*str == ' ' || *str == '\n' || *str == '\t' || *str == '+')
-			str++;
-		if (*str == '-')
-		{
-			minus = -1;
-			str++;
-		}
-		if (*str <= '9' && *str >= '0')
-		{	
-			res = res * 10 + *str - '0';
-			str++;
-		}
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		i++;
 	}
-	return (res * minus);
+	if ((s1[i] != '\0' && s2[i] == '\0') || (s1[i] != '\0' && s2[i] == '\0'))
+		return (s1[i] - s2[i]);
+	return (0);
 }
-
-
-int		main(void)
-{
-	printf("%d", ft_atoi("2342"));
-	return 0;
-}
-

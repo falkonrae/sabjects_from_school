@@ -1,43 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vjacob <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/24 21:34:57 by vjacob            #+#    #+#             */
-/*   Updated: 2020/02/25 12:11:41 by vjacob           ###   ########.fr       */
+/*   Created: 2020/02/26 13:26:32 by vjacob            #+#    #+#             */
+/*   Updated: 2020/02/26 13:29:20 by vjacob           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-int		ft_atoi(char *str)
+int		ft_strlen(char *str)
 {
-	int		minus = 1;
-	int		res;
-	while (*str)
-	{
-		if (*str == ' ' || *str == '\n' || *str == '\t' || *str == '+')
-			str++;
-		if (*str == '-')
-		{
-			minus = -1;
-			str++;
-		}
-		if (*str <= '9' && *str >= '0')
-		{	
-			res = res * 10 + *str - '0';
-			str++;
-		}
-	}
-	return (res * minus);
+	int		i;
+
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
 }
-
-
-int		main(void)
-{
-	printf("%d", ft_atoi("2342"));
-	return 0;
-}
-

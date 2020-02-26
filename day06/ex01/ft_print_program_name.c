@@ -1,43 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_print_program_name.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vjacob <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/24 21:34:57 by vjacob            #+#    #+#             */
-/*   Updated: 2020/02/25 12:11:41 by vjacob           ###   ########.fr       */
+/*   Created: 2020/02/26 13:40:11 by vjacob            #+#    #+#             */
+/*   Updated: 2020/02/26 13:49:33 by vjacob           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+void	ft_putstr(char *str);
+void	ft_putchar(char c);
 
-int		ft_atoi(char *str)
+int		main(int argc, char **argv)
 {
-	int		minus = 1;
-	int		res;
-	while (*str)
+	if (argc == 1)
 	{
-		if (*str == ' ' || *str == '\n' || *str == '\t' || *str == '+')
-			str++;
-		if (*str == '-')
-		{
-			minus = -1;
-			str++;
-		}
-		if (*str <= '9' && *str >= '0')
-		{	
-			res = res * 10 + *str - '0';
-			str++;
-		}
+		ft_putstr(argv[0]);
+		ft_putchar('\n');
 	}
-	return (res * minus);
+	return (0);
 }
-
-
-int		main(void)
-{
-	printf("%d", ft_atoi("2342"));
-	return 0;
-}
+		
 

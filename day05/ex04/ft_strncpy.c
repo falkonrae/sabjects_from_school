@@ -1,43 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vjacob <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/24 21:34:57 by vjacob            #+#    #+#             */
-/*   Updated: 2020/02/25 12:11:41 by vjacob           ###   ########.fr       */
+/*   Created: 2020/02/25 12:12:36 by vjacob            #+#    #+#             */
+/*   Updated: 2020/02/25 15:13:28 by vjacob           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <string.h>
 
-int		ft_atoi(char *str)
-{
-	int		minus = 1;
-	int		res;
-	while (*str)
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
+{ 
+	unsigned int	i;
+
+	i = 0;
+	while (src[i] != '\0' && i < n)
 	{
-		if (*str == ' ' || *str == '\n' || *str == '\t' || *str == '+')
-			str++;
-		if (*str == '-')
-		{
-			minus = -1;
-			str++;
-		}
-		if (*str <= '9' && *str >= '0')
-		{	
-			res = res * 10 + *str - '0';
-			str++;
-		}
+		dest[i] = src[i];
+		i++;
 	}
-	return (res * minus);
+	while (i < n)
+	{	
+		dest[i] = '\0';
+		i++;
+	}
+	return (dest);
 }
-
 
 int		main(void)
 {
-	printf("%d", ft_atoi("2342"));
+	char	s[] = "wwwwwwwwwwffsdf";
+	char	f[] = "gddsdddddd";
+	printf("%s\n", strncpy(f, s, 6));
+	printf("%s", ft_strncpy(f, s, 6));
 	return 0;
 }
-

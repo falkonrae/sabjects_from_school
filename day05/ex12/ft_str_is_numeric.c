@@ -1,43 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vjacob <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/24 21:34:57 by vjacob            #+#    #+#             */
-/*   Updated: 2020/02/25 12:11:41 by vjacob           ###   ########.fr       */
+/*   Created: 2020/02/25 20:15:25 by vjacob            #+#    #+#             */
+/*   Updated: 2020/02/25 20:21:49 by vjacob           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-int		ft_atoi(char *str)
+int		ft_str_is_numeric(char *str)
 {
-	int		minus = 1;
-	int		res;
-	while (*str)
+	unsigned int i = 0;
+	while (str[i] != '\0')
 	{
-		if (*str == ' ' || *str == '\n' || *str == '\t' || *str == '+')
-			str++;
-		if (*str == '-')
-		{
-			minus = -1;
-			str++;
-		}
-		if (*str <= '9' && *str >= '0')
-		{	
-			res = res * 10 + *str - '0';
-			str++;
-		}
+		if (str[i] < '0' || str[i] > '9')
+			return (0);
+		i++;
 	}
-	return (res * minus);
+	return (1);
 }
-
 
 int		main(void)
 {
-	printf("%d", ft_atoi("2342"));
+	char d[] = "sdfsda2";
+	char g[] = "234234";
+	printf("%d\n", ft_str_is_numeric(d));
+	printf("%d\n", ft_str_is_numeric(g));
 	return 0;
 }
-
