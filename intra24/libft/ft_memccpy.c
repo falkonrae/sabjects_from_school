@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vjacob <vjacob@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/30 16:17:05 by vjacob            #+#    #+#             */
-/*   Updated: 2020/10/31 15:19:04 by vjacob           ###   ########.fr       */
+/*   Created: 2020/10/31 15:42:41 by vjacob            #+#    #+#             */
+/*   Updated: 2020/10/31 15:48:50 by vjacob           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-void	ft_bzero(void *s, size_t n)
+void	*memccpy(void *dst, const void *src, int c, size_t n)
 {
-	char *buf;
-
-	buf = s;
-	while (n > 0)
-	{
-		*buf = '\0';
-		buf++;
-		n--;
-	}
+	
 }
