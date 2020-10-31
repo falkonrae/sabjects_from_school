@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vjacob <vjacob@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vjacob <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/30 16:30:37 by vjacob            #+#    #+#             */
-/*   Updated: 2020/10/30 16:33:01 by vjacob           ###   ########.fr       */
+/*   Created: 2020/10/30 16:17:05 by vjacob            #+#    #+#             */
+/*   Updated: 2020/10/30 16:34:10 by vjacob           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include <string.h>
-
-void *ft_memset(void *dest, int c, size_t n)
+ void ft_bzero(void *s, size_t n)
 {
-	char *p = (char *)dest; 
-	while (n > 0)
+	char *c = s;
+	while (*c)
 	{
-		*p = c;
-		p++;
-		n--;
-	}
-	return (dest);
-}
+
