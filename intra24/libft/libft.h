@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   header.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vjacob <vjacob@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/31 17:10:19 by vjacob            #+#    #+#             */
-/*   Updated: 2020/11/02 18:03:21 by vjacob           ###   ########.fr       */
+/*   Created: 2020/11/01 11:57:16 by vjacob            #+#    #+#             */
+/*   Updated: 2020/11/01 12:11:35 by vjacob           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-size_t	ft_strlen(const char *s)
-{
-	size_t i;
-
-	i = 0;
-	while (*s)
-	{
-		i++;
-		s++;
-	}
-	return (i);
-}
+void	ft_bzero(void *s, size_t n);
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n);
+void	ft_memcpy(void *dst, const void *src, size_t n);
+void	*ft_memset(void *dest, int c, size_t n);
+size_t	ft_strlen(const char *s);

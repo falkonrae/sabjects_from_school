@@ -6,27 +6,26 @@
 /*   By: vjacob <vjacob@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 15:42:41 by vjacob            #+#    #+#             */
-/*   Updated: 2020/10/31 17:30:51 by vjacob           ###   ########.fr       */
+/*   Updated: 2020/11/02 18:03:31 by vjacob           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-void	*memccpy(void *dst, const void *src, int c, size_t n)
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	char	*p;
-	char	*w;
-	char	*pointer;
-	int		i;
+	unsigned char	*p;
+	unsigned char	*w;
+	unsigned int	i;
 
 	i = 0;
-	pointer = (char *)c;
-	p = (char *)dst;
-	w = (char *)src;
-	while (n > 0 && src[i] != c)
+	p = (unsigned char *)dst;
+	w = (unsigned char *)src;
+	while ((n > 0) && (w[i] != c))
 	{
-		dst[i] = src[i];
+		p[i] = w[i];
 		n--;
 		i++;
 	}
+	return (dst);
 }

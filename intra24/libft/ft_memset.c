@@ -6,17 +6,17 @@
 /*   By: vjacob <vjacob@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:30:37 by vjacob            #+#    #+#             */
-/*   Updated: 2020/10/31 15:19:27 by vjacob           ###   ########.fr       */
+/*   Updated: 2020/11/02 18:03:36 by vjacob           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 void	*ft_memset(void *dest, int c, size_t n)
 {
-	char *p;
+	unsigned char *p;
 
-	p = (char *)dest;
+	p = (unsigned char *)dest;
 	while (n > 0)
 	{
 		*p = c;
