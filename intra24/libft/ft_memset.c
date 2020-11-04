@@ -6,7 +6,7 @@
 /*   By: vjacob <vjacob@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:30:37 by vjacob            #+#    #+#             */
-/*   Updated: 2020/11/02 18:03:36 by vjacob           ###   ########.fr       */
+/*   Updated: 2020/11/04 09:04:20 by vjacob           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,15 @@
 
 void	*ft_memset(void *dest, int c, size_t n)
 {
-	unsigned char *p;
+	unsigned char *d;
+	unsigned char symbol;
 
-	p = (unsigned char *)dest;
+	d = (unsigned char *)dest;
+	symbol = (unsigned char)c;
 	while (n > 0)
 	{
-		*p = c;
-		p++;
+		*d = symbol;
+		d++;
 		n--;
 	}
 	return (dest);

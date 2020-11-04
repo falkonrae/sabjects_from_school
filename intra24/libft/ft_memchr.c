@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vjacob <vjacob@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/31 15:42:41 by vjacob            #+#    #+#             */
-/*   Updated: 2020/11/04 10:44:14 by vjacob           ###   ########.fr       */
+/*   Created: 2020/11/04 14:14:36 by vjacob            #+#    #+#             */
+/*   Updated: 2020/11/04 15:10:36 by vjacob           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
-void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
 	unsigned char	*p;
-	unsigned char	*w;
-	unsigned char	symbol;
+	unsigned char	w;
 
-	p = (unsigned char *)dst;
-	w = (unsigned char *)src;
-	symbol = (unsigned char)c;
+	p = (unsigned char *)s;
+	w = (unsigned char)c;
 	while (n > 0)
 	{
-		*p = *w;
-		p++;
-		w++;
-		n--;
-		if (*(p - 1) == symbol)
+		if (*p == w)
 			return (p);
+		p++;
+		n--;
 	}
 	return (NULL);
 }

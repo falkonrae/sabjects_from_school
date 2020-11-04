@@ -1,34 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vjacob <vjacob@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/31 15:42:41 by vjacob            #+#    #+#             */
-/*   Updated: 2020/11/04 10:44:14 by vjacob           ###   ########.fr       */
+/*   Created: 2020/11/04 10:46:01 by vjacob            #+#    #+#             */
+/*   Updated: 2020/11/04 15:10:37 by vjacob           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
-void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	unsigned char	*p;
-	unsigned char	*w;
-	unsigned char	symbol;
+	unsigned char	*d;
+	unsigned char	*s;
+	unsigned char	buf[len];
+	size_t			i;
 
-	p = (unsigned char *)dst;
-	w = (unsigned char *)src;
-	symbol = (unsigned char)c;
-	while (n > 0)
+	if (len == 0)
+		return (dst);
+	i = 0;
+	d = (unsigned char *)dst;
+	s = (unsigned char *)src;
+	while (i < len)
 	{
-		*p = *w;
-		p++;
-		w++;
-		n--;
-		if (*(p - 1) == symbol)
-			return (p);
+		buf[i] = s[i];
+		i++;
 	}
-	return (NULL);
+	i = 0;
+	while (i < len)
+	{
+		d[i] = buf[i];
+		i++;
+	}
+	return (dst);
 }

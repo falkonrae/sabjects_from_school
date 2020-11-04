@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vjacob <vjacob@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/31 15:42:41 by vjacob            #+#    #+#             */
-/*   Updated: 2020/11/04 10:44:14 by vjacob           ###   ########.fr       */
+/*   Created: 2020/11/04 14:27:46 by vjacob            #+#    #+#             */
+/*   Updated: 2020/11/04 15:10:34 by vjacob           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
-void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	unsigned char	*p;
-	unsigned char	*w;
-	unsigned char	symbol;
+	unsigned char	*str1;
+	unsigned char	*str2;
 
-	p = (unsigned char *)dst;
-	w = (unsigned char *)src;
-	symbol = (unsigned char)c;
+	str1 = (unsigned char *)s1;
+	str2 = (unsigned char *)s2;
 	while (n > 0)
 	{
-		*p = *w;
-		p++;
-		w++;
+		if (*str1 != *str2)
+			return (*str1 - *str2);
+		str1++;
+		str2++;
 		n--;
-		if (*(p - 1) == symbol)
-			return (p);
 	}
-	return (NULL);
+	return (0);
 }
