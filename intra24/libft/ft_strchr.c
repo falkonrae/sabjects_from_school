@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vjacob <vjacob@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/01 14:35:02 by vjacob            #+#    #+#             */
-/*   Updated: 2020/11/05 16:50:34 by vjacob           ###   ########.fr       */
+/*   Created: 2020/11/05 17:30:14 by vjacob            #+#    #+#             */
+/*   Updated: 2020/11/05 18:09:45 by vjacob           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, char *src, size_t dstsize)
+char	*ft_strchr(const char *s, int c)
 {
-	size_t	i;
+	char	*mas;
+	char	sym;
+	int		i;
 
-	if (dst == '\0' && src == '\0')
-		return (0);
-	if (dstsize == 0)
-		return (ft_strlen(src));
 	i = 0;
-	while (src[i] != '\0' && i < (dstsize - 1))
+	mas = (char *)s;
+	sym = (char)c;
+	while (mas[i] != '\0')
 	{
-		dst[i] = src[i];
+		if (mas[i] == sym)
+			return (&mas[i]);
 		i++;
 	}
-	dst[i] = '\0';
-	i = 0;
-	while (src[i] != '\0')
-		i++;
-	return (i);
+	if (mas[i] == sym)
+		return (&mas[i]);
+	return (NULL);
 }
