@@ -6,13 +6,13 @@
 #    By: vjacob <vjacob@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/01 12:17:34 by vjacob            #+#    #+#              #
-#    Updated: 2020/11/05 17:35:21 by vjacob           ###   ########.fr        #
+#    Updated: 2020/11/06 13:58:55 by vjacob           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC			= ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c \
 				ft_memchr.c ft_memcmp.c ft_strlen.c ft_strlcpy.c ft_strlcat.c \
-				ft_strchr.c ft_strrchr.c
+				ft_strchr.c ft_strrchr.c ft_strnstr.c
 
 OBJ			= $(SRC:.c=.o)
 
