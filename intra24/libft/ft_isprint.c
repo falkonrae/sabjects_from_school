@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   massiv.c                                           :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vjacob <vjacob@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/30 13:32:10 by vjacob            #+#    #+#             */
-/*   Updated: 2020/10/30 16:33:01 by vjacob           ###   ########.fr       */
+/*   Created: 2020/11/06 17:02:11 by vjacob            #+#    #+#             */
+/*   Updated: 2020/11/06 17:03:44 by vjacob           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
-int main()
+int	ft_isprint(int c)
 {
-	int mass[] = {4,2,5,7,3,8,3,5};
-	char mix[] = "Everyday I'm shaffeling";
-	int *point = mass;
-	char *strin = mix;
-	printf("%s", strin);
-	printf("\n");
-	while (*point)
-	{	
-		printf("%d ", *point);
-		point++;
-	}
-	return 0;
+	if (c >= 32 && c <= 126)
+		return (1);
+	return (0);
 }
