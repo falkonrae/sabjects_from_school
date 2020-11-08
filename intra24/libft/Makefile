@@ -6,7 +6,7 @@
 #    By: vjacob <vjacob@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/01 12:17:34 by vjacob            #+#    #+#              #
-#    Updated: 2020/11/07 18:39:57 by vjacob           ###   ########.fr        #
+#    Updated: 2020/11/08 11:06:13 by vjacob           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ SRC			= ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c \
 				ft_strchr.c ft_strrchr.c ft_strnstr.c ft_strncmp.c ft_atoi.c \
 				ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 				ft_toupper.c ft_tolower.c ft_calloc.c ft_strdup.c ft_substr.c \
-				ft_strjoin.c
+				ft_strjoin.c ft_strtrim.c
 				
 OBJ			= $(SRC:.c=.o)
 
