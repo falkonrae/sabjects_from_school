@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vjacob <vjacob@student.42.fr>              +#+  +:+       +#+        */
+/*   By: falkonrae <falkonrae@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/08 10:56:42 by vjacob            #+#    #+#             */
-/*   Updated: 2020/11/08 13:20:28 by vjacob           ###   ########.fr       */
+/*   Updated: 2020/11/09 00:18:05 by falkonrae        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 int	check_set(char c, char const *set)
 {
-	size_t	i;
-
-	i = 0;
 	while (*set)
 	{
 		if (*set == c)
