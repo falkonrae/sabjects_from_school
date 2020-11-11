@@ -3,182 +3,106 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: falkonrae <falkonrae@student.42.fr>        +#+  +:+       +#+        */
+/*   By: vjacob <vjacob@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 11:34:55 by falkonrae         #+#    #+#             */
-/*   Updated: 2020/11/11 13:26:38 by falkonrae        ###   ########.fr       */
+/*   Updated: 2020/11/11 20:12:39 by vjacob           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*char    *split_process(char **array, char *s_new, char c)
+static int	size_of_s(char const *s, char c)
 {
-    char    *buf; // Здесь сам процесс сплита
-    size_t  i;
-    
-    i = 0;  
-    buf = ft_strtrim(s_new, &c);
-    while (buf && s_new[i] != c)
-    {
-        *array[i] = s_new[i];
-        i++;
-    }
-    *array[i] = '\0';
-    return (*array);
-}   
-   
-char    **ft_split(char const *s, char c)
-{
-    char    *s_new;
-    char    **array;
-    int     size;
-    
-    size = 0;
-    while (s) // Тут я считаю, сколько строк получится в массиве
-    {
-        if (*s == c)
-            s++;
-        else
-        {
-            size++;
-            while (*s && *s != c)
-                s++;
-        }
-    }
-    s_new = (char *)s;
-    array = (char**)malloc(sizeof(char *) * (size + 1));
-    if (array == NULL)
-    {
-        free (array);
-        return (NULL);
-    }
-    while (size > 0)
-    {
-        *array = split_process(array, s_new, c);
-        size--;
-        array++;
-        s_new = ft_substr(s_new, i, (ft_strlen(s_new) - ft_strlen(*array)));
-    }
-    return (array);   
-}*/
+	int		size;
 
-static int	r_size(char const *s,  char c)
-{
-	unsigned int len;
-
-	len = 0;
-	while (*s)
+	size = 0;
+	while (s)
 	{
 		if (*s == c)
-			++s;
+			s++;
 		else
 		{
-			++len;
-			while (*s && *s == c)
-				++s;
+			size++;
+			while (*s && *s != c)
+				s++;
 		}
 	}
-	return (len);
+	return (size);
 }
 
-char 		**ft_split(char const *s, char c)
+unsigned int		size_of_string(char const *s, char c, unsigned int count)
 {
-	int		i = 0;
-	int		j = 0;
-	int		k;
-	char	**r;
-	int		w_len = 0;
+	unsigned int		size;
+	int					i;
 
-	if (!(r = (char **)malloc(sizeof(char*) * (r_size(s, c) + 1))))
-    {
-        	free (r);
-            return (0);
-    }
-	
-	while (s[i] && j < r_size(s, c))
+	i = count;
+	size = 0;
+	while (s[i] == c && *s)
 	{
-		while (s[i] && s[i] == c)
-			i++;
-		while (s[i] && s[i] != c)
-		{
-			w_len++;
-			i++;
-		}
-		if (!(r[j] = (char *)malloc(sizeof(char) * (w_len + 1))))
-		{
-            free(r[j]);
-            return (0);
-        }	
-		k = 0;
-		while (w_len)
-			r[j][k++] = s[i - w_len--];
-		r[j++][k] = '\0';
+		i++;
 	}
-	return (r);
-}
-
-
-
-
-
-
-
-
-
-
-/*#include <stdlib.h>
-
-int	ft_isspace(char c)
-{
-	return ((c == ' ' || (c >= 9 && c <= 13)) ? 1 : 0);
-}
-
-static int	r_size(char *s)
-{
-	unsigned int len;
-
-	len = 0;
-	while (*s)
+	while (s[i] != c && *s)
 	{
-		if (ft_isspace(*s))
-			++s;
-		else
-		{
-			++len;
-			while (*s && !ft_isspace(*s))
-				++s;
-		}
+		size++;
+		i++;
 	}
-	return (len);
+	return (size);
 }
 
-char 		**ft_split(char *s)
+static void				*free_array(char **array)
 {
-	int		i = 0;
-	int		j = 0;
-	int		k;
-	char	**r;
-	int		w_len = 0;
-
-	if (!(r = (char **)malloc(sizeof(char*) * (r_size(s) + 1))))
-		return (0);
-	while (s[i] && j < r_size(s))
+	while (*array != NULL)
 	{
-		while (s[i] && ft_isspace(s[i]))
-			i++;
-		while (s[i] && !ft_isspace(s[i]))
-		{
-			w_len++;
-			i++;
-		}
-		if (!(r[j] = (char *)malloc(sizeof(char) * (w_len + 1))))
-			return (0);
-		k = 0;
-		while (w_len)
-			r[j][k++] = s[i - w_len--];
-		r[j++][k] = '\0';
+		free(*array);
+		array++;
 	}
-	return (r);
+	free(array);
+	return (NULL);
 }
-		*/
+
+
+size_t  jump_to(char *s_new, char c)
+{
+	size_t i;
+
+	i = 0;
+	while (*s_new != c && *s_new)
+	{
+		s_new++;
+		i++;
+	}
+	while (*s_new == c && *s_new)
+	{
+		s_new++;
+		i++;
+	}
+	return (i);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char			**array;
+	size_t			size;
+	char			*s_new;
+	unsigned int	count;
+
+	count = 0;
+	s_new = ft_strtrim(s, &c);
+	if (s_new == NULL)
+		return (NULL);
+	size = size_of_s(s, c);
+	array = malloc(sizeof(char *) * (size + 1));
+	if (array == NULL)
+		return (NULL);
+	while (size > 0)
+	{
+		*array = ft_substr(s_new, count, size_of_string(s_new, c, count));
+		if (*array == NULL)
+			return (free_array(array));
+		count = count + jump_to(s_new, c);
+		size--;
+		array++;
+	}
+	return (array);
+}
