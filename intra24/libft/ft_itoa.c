@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: falkonrae <falkonrae@student.42.fr>        +#+  +:+       +#+        */
+/*   By: vjacob <vjacob@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/09 09:56:34 by falkonrae         #+#    #+#             */
-/*   Updated: 2020/11/09 13:28:05 by falkonrae        ###   ########.fr       */
+/*   Created: 2020/11/09 09:56:34 by vjacob            #+#    #+#             */
+/*   Updated: 2020/11/10 13:41:29 by vjacob           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int n_size(int n)
+int		n_size(int n)
 {
-    int	len;
+	int	len;
 
 	len = 0;
 	if (n == 0)
@@ -29,39 +29,44 @@ int n_size(int n)
 	return (len);
 }
 
-char    *ft_itoa(int n)
+char	*new_str(char *str, int nlen, int neg, int n)
 {
-    char    *str;
-    int     nlen;
-    int     neg;
-    
-    if (n == -2147483648)
+	while (nlen >= 0)
+	{
+		if (nlen == 0 && neg == 1)
+		{
+			str[0] = '-';
+			nlen--;
+		}
+		else
+		{
+			str[nlen] = (n % 10) + '0';
+			nlen--;
+			n = n / 10;
+		}
+	}
+	return (str);
+}
+
+char	*ft_itoa(int n)
+{
+	char	*str;
+	int		nlen;
+	int		neg;
+
+	if (n == -2147483648)
 		return (ft_strdup("-2147483648"));
-    neg = 0;  
-    nlen = n_size(n);
-    str = (char *)malloc(sizeof(char) * (nlen + 1));
-    if (str == NULL)
-        return (NULL); 
-    if (n < 0)
-    {
-        neg = 1;
-        n = -n;
-    }  
-    str[nlen] = '\0';
-     nlen--;
-    while (nlen >= 0)
-    {  
-        if (nlen == 0 && neg == 1)
-        {
-            str[0] = '-';
-            nlen--;
-        }    
-        else
-        {
-            str[nlen] = (n % 10) + '0';
-            nlen--;
-            n = n / 10;
-        }
-    }
-    return (str);
-}   
+	neg = 0;
+	nlen = n_size(n);
+	str = (char *)malloc(sizeof(char) * (nlen + 1));
+	if (str == NULL)
+		return (NULL);
+	if (n < 0)
+	{
+		neg = 1;
+		n = -n;
+	}
+	str[nlen] = '\0';
+	nlen--;
+	return (new_str(str, nlen, neg, n));
+}

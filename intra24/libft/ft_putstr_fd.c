@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: falkonrae <falkonrae@student.42.fr>        +#+  +:+       +#+        */
+/*   By: vjacob <vjacob@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/09 16:31:48 by falkonrae         #+#    #+#             */
-/*   Updated: 2020/11/09 16:37:30 by falkonrae        ###   ########.fr       */
+/*   Created: 2020/11/09 16:31:48 by vjacob            #+#    #+#             */
+/*   Updated: 2020/11/11 18:36:07 by vjacob           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 
 void	ft_putstr_fd(char const *s, int fd)
 {
