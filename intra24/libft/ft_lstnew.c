@@ -6,7 +6,7 @@
 /*   By: vjacob <vjacob@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 16:53:51 by vjacob            #+#    #+#             */
-/*   Updated: 2020/11/10 15:11:55 by vjacob           ###   ########.fr       */
+/*   Updated: 2020/11/13 18:20:33 by vjacob           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 t_list	*ft_lstnew(void *content)
 {
-	t_list	*elt;
+	t_list	*newl;
 
-	if (!(elt = (t_list*)malloc(sizeof(*elt))))
+	newl = (t_list*)malloc(sizeof(*newl));
+	if (newl == NULL)
 		return (NULL);
-	elt->content = content;
-	elt->next = NULL;
-	return (elt);
+	newl->content = content;
+	newl->next = NULL;
+	return (newl);
 }

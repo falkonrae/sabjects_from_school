@@ -6,7 +6,7 @@
 /*   By: vjacob <vjacob@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 15:53:33 by vjacob            #+#    #+#             */
-/*   Updated: 2020/11/10 15:14:14 by vjacob           ###   ########.fr       */
+/*   Updated: 2020/11/13 15:22:08 by vjacob           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char			*str;
 	unsigned int	i;
 
+	if (s == NULL)
+		return (NULL);
 	i = 0;
 	str = (char *)malloc(sizeof(*s) * (ft_strlen(s) + 1));
 	if (str == NULL)

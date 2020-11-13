@@ -6,7 +6,7 @@
 /*   By: vjacob <vjacob@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 18:36:49 by vjacob            #+#    #+#             */
-/*   Updated: 2020/11/07 19:03:14 by vjacob           ###   ########.fr       */
+/*   Updated: 2020/11/13 15:36:23 by vjacob           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	i = 0;
 	j = 0;
-	if (s1 == NULL || s1 == NULL)
+	if (s1 == NULL || s2 == NULL)
 		return (NULL);
 	size = ft_strlen(s1) + ft_strlen(s2);
 	new_string = (char *)malloc(sizeof(char *) * size);

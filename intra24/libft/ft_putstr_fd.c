@@ -6,7 +6,7 @@
 /*   By: vjacob <vjacob@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 16:31:48 by vjacob            #+#    #+#             */
-/*   Updated: 2020/11/11 18:36:07 by vjacob           ###   ########.fr       */
+/*   Updated: 2020/11/13 16:03:07 by vjacob           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,4 @@ void	ft_putstr_fd(char const *s, int fd)
 	if (s)
 		while (*s)
 			ft_putchar_fd(*(s++), fd);
-	else
-		return ;
 }
